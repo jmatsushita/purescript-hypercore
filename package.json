@@ -1,0 +1,37 @@
+{
+  "name": "purescript-hypercore",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test:build:module": "spago bundle-module --main Test.Main --to ./output/test.js",
+    "test:build": "spago build && esbuild output/Test.Main/index.js --platform=browser --format=iife --bundle --external:fs --outfile=./output/test.js",
+    "test:watch": "spago bundle-app --watch --main Test.Main --to ./output/test.js --then \"npm run -s test:node\"",
+    "test:watch:browser": "spago bundle-app --watch --main Test.Browser --to ./output/test.js --then \"npm run -s test:browser\"",
+    "test:watch:module": "spago bundle-module --watch --main Test.Browser --to ./output/test.js",
+    "test:node": "spago build && spago test --main Test.Node",
+    "test:browser": "spago build && parcel test/index.html --open"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "@geut/sodium-javascript-plus": "0.0.6",
+    "@storyboard-fm/stochastic-access-idb": "https://github.com/Storyboard-fm/random-access-idb",
+    "hypercore": "^10.9.0",
+    "random-access-idb": "^1.2.2",
+    "random-access-memory": "^6.2.0",
+    "random-access-web": "https://github.com/random-access-storage/random-access-web",
+    "sodium-javascript": "^0.6.1"
+  },
+  "devDependencies": {
+    "buffer": "^5.5.0||^6.0.0",
+    "esbuild": "^0.17.18",
+    "mocha": "^8.0.1",
+    "parcel": "2.10.2"
+  },
+  "packageManager": "yarn@4.0.2"
+}
