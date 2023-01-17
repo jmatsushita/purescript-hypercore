@@ -1,0 +1,32 @@
+{
+  "name": "purescript-hypercore",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test:build": "spago bundle-app --main Test.Main --to ./output/test.js",
+    "test:watch": "spago bundle-app --watch --main Test.Main --to ./output/test.js --then \"npm run -s test:node\"",
+    "test": "spago build && spago test",
+    "test:browser": "parcel test/index.html --open"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "@geut/sodium-javascript-plus": "0.0.6",
+    "hypercore": "10.5.4",
+    "random-access-memory": "^6.1.0",
+    "sodium-javascript": "^0.6.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "alias": {
+    "sodium-native": "@geut/sodium-javascript-plus",
+    "sodium-universal": "@geut/sodium-javascript-plus"
+  }
+}
